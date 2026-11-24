@@ -21,6 +21,12 @@ public class LabDemo {
         new Device("", "PUMP-A", 2020).printInfo();
         new Device(null, "PUMP-A", 2020).printInfo();
 
+        System.out.println("===== F6：两种构造路径的状态 =====");
+        device1.printInfo();
+        new Device("D001", "PUMP-A", 2020).printInfo();
+        sensor1.printInfo();
+        new TemperatureSensor("T001", 150.0).printInfo();
+
         System.out.println("===== F3、F4：更新读数与查询信息 =====");
         sensor1.setReading(85.0);
         sensor1.setReading(160.0);
@@ -34,5 +40,15 @@ public class LabDemo {
         sensor1.setReading(85.0);
         sensor2.setReading(40.0);
         sensor3.setReading(60.0);
+
+        System.out.println("===== F7、F8：挂接、更换与设备状态 =====");
+        device1.attachSensor(sensor1);
+        device1.attachSensor(sensor2);
+        device1.printInfo();
+        device1.attachSensor(sensor3);
+        device1.printInfo();
+        device1.replaceSensor(2, sensor3);
+        device1.printInfo();
+        device2.printInfo();
     }
 }
